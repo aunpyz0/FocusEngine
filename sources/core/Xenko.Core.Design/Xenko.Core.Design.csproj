@@ -8,8 +8,9 @@
     <XenkoAssemblyProcessor>true</XenkoAssemblyProcessor>
     <XenkoAssemblyProcessorOptions>--auto-module-initializer --serialization</XenkoAssemblyProcessorOptions>
     <XenkoPlatformDependent>true</XenkoPlatformDependent>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net5.0-windows</TargetFramework>
     <XenkoBuildTags>WindowsTools</XenkoBuildTags>
+    <UseWindowsForms>true</UseWindowsForms>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\..\build\</SolutionDir>
     <RestorePackages>true</RestorePackages>
   </PropertyGroup>
@@ -31,12 +32,11 @@
     <ProjectReference Include="..\Xenko.Core.Yaml\Xenko.Core.Yaml.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.VisualStudio.Setup.Configuration.Interop" Version="1.16.30" />
+    <!--PackageReference Include="Microsoft.VisualStudio.Setup.Configuration.Interop" Version="1.16.30" /-->
     <PackageReference Include="Microsoft.Extensions.DependencyModel" Version="2.1.0" />
     <PackageReference Include="NuGet.Configuration" Version="5.8.0" />
     <PackageReference Include="SharpDX" Version="4.2.0" />
-    <PackageReference Include="System.Management" Version="4.6.0" />
-    <Reference Include="System.Windows.Forms" />
+    <PackageReference Include="System.Management" Version="5.0.0" />
   </ItemGroup>
   
   <Import Project="$(XenkoPostSettingsTargets)" />

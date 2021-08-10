@@ -27,6 +27,8 @@
     <!-- Let's support escaped MSBuild variables, in case it was sent from Xenko.build (not sure why but I couldn't make it work properly when passing to MSBuild.Properties) -->
     <XenkoPlatforms>$([MSBuild]::Unescape('$(XenkoPlatforms)'))</XenkoPlatforms>
     <_XenkoPlatforms>;$(XenkoPlatforms);</_XenkoPlatforms>
+    <RunAnalyzersDuringBuild>false</RunAnalyzersDuringBuild>
+    <EnableNETAnalyzers>false</EnableNETAnalyzers>
   </PropertyGroup>
   
   <PropertyGroup Condition="$(TargetFramework.StartsWith('uap10.0'))">
@@ -155,6 +157,10 @@
     <XenkoGlobalSettingsTargets Condition="'$(XenkoGlobalSettingsTargets)' == ''">$(MSBuildThisFileDirectory)Xenko.Core.GlobalSettings.targets</XenkoGlobalSettingsTargets>
     <XenkoPostSettingsTargets Condition="'$(XenkoPostSettingsTargets)' == ''">$(MSBuildThisFileDirectory)Xenko.Core.PostSettings.targets</XenkoPostSettingsTargets>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.0" />
+  </ItemGroup>
 
   <!-- Ensure appropriate Solution Platform are available -->
   <Choose>
